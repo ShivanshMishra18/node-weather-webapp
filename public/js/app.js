@@ -9,7 +9,7 @@ const message2 = document.querySelector('#message-2');
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();     // To prevent refreshing of page otherwise data gets wiped out
 
-    const searchURL = 'http://localhost:3000/weather?address=' + search.value;
+    const searchURL = '/weather?address=' + search.value;
     message1.textContent = 'Loading...';
     message2.textContent = '';
 

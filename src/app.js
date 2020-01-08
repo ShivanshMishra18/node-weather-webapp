@@ -17,20 +17,23 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
+// Port to support localhost or Heroku environment
+const port = process.env.PORT || 3000;
+
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
 app.get('', (req,res) => {
     res.render('index', {
         title: 'Weather App',
-        name: 'Andrew Mead'
+        name: 'SM'
     });
 });
 
 app.get('/about', (req,res) => {
     res.render('about', {
         title: 'About',
-        name: 'Bhaji'
+        name: 'SM'
     });
 });
 
@@ -38,7 +41,7 @@ app.get('/help', (req,res) => {
     res.render('help', {
         helpText: 'This is some helpful text.',
         title: 'Help',
-        name: 'Bhaji'
+        name: 'SM'
     });
 });
 
@@ -102,6 +105,6 @@ app.get('*', (req,res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running');
+app.listen(port, () => {
+    console.log('Server is running at port ' + port);
 });
